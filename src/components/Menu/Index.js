@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Search from "./components/Search";
 
 const StyledMenu = styled.header`
   display: flex;
@@ -24,12 +25,13 @@ const StyledMenu = styled.header`
   }
 `;
 
-export default function Menu() {
+export default function Menu({ filterValue, setFilterValue }) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
+      <Search filterValue={filterValue} setFilterValue={setFilterValue} />
     </StyledMenu>
   );
 }
@@ -48,7 +50,7 @@ function Logo() {
       />
       <path
         d="M49.7535 25.294V62.0394L81.6533 43.6667L49.7535 25.294Z"
-        fill="white"
+        fill="#FFF"
       />
       <path
         className="text"
