@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import config from "../config.json";
-import { CSSReset } from "../src/components/CSSReset";
 import { StyledTimeline } from "../src/components/Timeline";
 
 import Menu from "../src/components/Menu/Index";
@@ -12,7 +11,6 @@ function HomePage() {
 
   return (
     <>
-      <CSSReset />
       <div
         style={{
           display: "flex",
@@ -20,7 +18,6 @@ function HomePage() {
           flex: 1,
         }}
       >
-        {/* Prop Drilling */}
         <Menu filterValue={filterValue} setFilterValue={setFilterValue} />
         <Header />
         <Timeline searchValue={filterValue} playlists={config.playlists} />
@@ -32,6 +29,7 @@ function HomePage() {
 export default HomePage;
 
 const StyledHeader = styled.div`
+  background-color: ${({ theme }) => theme.backgroundLevel1};
   img {
     width: 80px;
     height: 80px;
@@ -63,7 +61,7 @@ function Header() {
         <img src={`https://github.com/${config.github}.png`} />
         <div>
           <h2>{config.name}</h2>
-          <p>{config.job}</p>
+          <p>{config.description}</p>
         </div>
       </section>
     </StyledHeader>
