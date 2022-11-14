@@ -30,6 +30,13 @@ export default HomePage;
 
 const StyledHeader = styled.div`
   background-color: ${({ theme }) => theme.backgroundLevel1};
+  a {
+    color: inherit;
+    &:hover {
+      filter: drop-shadow(0 0 4px #f00) saturate(250%);
+      opacity: 1;
+    }
+  }
   img {
     width: 80px;
     height: 80px;
@@ -37,11 +44,16 @@ const StyledHeader = styled.div`
   }
   .user-info {
     width: 100%;
-    padding: 16px 32px;
-    margin-top: 50px;
+    padding: 16px 0 16px 16px;
     display: flex;
     align-items: center;
     gap: 16px;
+  }
+  @media (max-width: 600px) {
+    text-align: center;
+    .user-info {
+      display: inline;
+    }
   }
 `;
 const StyledBanner = styled.div`
@@ -50,20 +62,22 @@ const StyledBanner = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 240px;
+  height: 14rem;
 `;
 
 function Header() {
   return (
     <StyledHeader>
       <StyledBanner banner={config.banner} />
-      <section className="user-info">
-        <img src={`https://github.com/${config.github}.png`} />
-        <div>
-          <h2>{config.name}</h2>
-          <p>{config.description}</p>
-        </div>
-      </section>
+      <a href="https://www.github.com/eltonjcs" target="_blank">
+        <section className="user-info">
+          <img src={`https://github.com/${config.github}.png`} />
+          <div>
+            <h2>{config.name}</h2>
+            <p>{config.description}</p>
+          </div>
+        </section>
+      </a>
     </StyledHeader>
   );
 }

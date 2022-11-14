@@ -6,13 +6,13 @@ const StyledSearch = styled.div`
   flex-direction: row;
   border: 1px solid ${({ theme }) => theme.borderBase};
   max-width: 425px;
-  width: 100%;
-  border-radius: 2px;
+  width: 60%;
+  border-radius: 1rem;
   overflow: hidden;
 
   input {
-    width: 80%;
-    padding: 4px 6px;
+    width: 85%;
+    padding: 4px 8px;
     border: none;
     outline: none;
     color: ${({ theme }) => theme.textColorBase};
@@ -42,6 +42,7 @@ export default function Search({ filterValue, setFilterValue }) {
     <StyledSearch>
       <input
         type="text"
+        placeholder="Search"
         onChange={(e) => setSearchValue(e.target.value)}
         value={SearchValue}
       />

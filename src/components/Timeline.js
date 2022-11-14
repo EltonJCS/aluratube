@@ -24,7 +24,7 @@ export const StyledTimeline = styled.div`
     padding: 16px;
     div {
       background-color: ${({ theme }) => theme.backgroundLevel2 || "#222222"};
-      width: 96vw;
+      width: calc(100vw - 8px * 4);
       border-radius: 1rem;
       display: grid;
       grid-gap: 16px;
